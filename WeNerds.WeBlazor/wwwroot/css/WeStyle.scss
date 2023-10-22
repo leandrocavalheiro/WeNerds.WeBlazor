@@ -1,0 +1,485 @@
+﻿
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+// Font
+$font-default: "Poppins", sans-serif;
+$font-family-sans-serif: "Roboto", sans-serif;
+$font-family-serif: "Roboto Slab", serif;
+
+// Font sizes
+$font-size-base: 16px;
+$font-size-small: 14px;
+$font-size-large: 18px;
+
+// Font weights
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+// Line height
+$line-height-base: 1.5;
+
+// Spacing
+$padding-base: 10px;
+$margin-base: 10px;
+
+// Headings
+$headings-font-family: $font-family-sans-serif;
+$headings-font-weight: $font-weight-bold;
+$headings-line-height: 1.2;
+
+// Buttons
+$buttons-font-family: $font-family-sans-serif;
+$buttons-font-weight: $font-weight-bold;
+$buttons-font-size: $font-size-base;
+$buttons-line-height: $line-height-base;
+$buttons-color: #fff;
+$buttons-background-color: #000;
+$buttons-border-color: #000;
+$buttons-hover-color: #fff;
+$buttons-hover-background-color: #000;
+$buttons-hover-border-color: #000;
+
+$dark-color: #2c2e2f;
+$accent-color: #4ffbdf;
+$white-text: #DCDCDC;
+$secondary-bg-color: #fff;
+$border-color: #e9ebec;
+$body-bg-color: #f3f3f9;
+$muted-color: #6c757d;
+$button-default-color: #2c2e2f;
+$success-bg-color:#daf4f0;
+$warning-bg-color: #fef4e4;
+$error-bg-color: #fde8e4;
+$information-bg-color: #e1ebfd;
+$information-text-color: #2833c7;
+
+body {
+    font-family: $font-default;
+    font-size: 13px;
+    background-color: $body-bg-color;
+}
+
+
+.hidden-div {
+    display: none;
+}
+
+.container {
+    text-align: center;    
+}
+
+.container-sidebar-header {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-sidebar {
+    background-color: $dark-color;
+}
+
+.container-topbar-account {
+    display: flex;
+    justify-content: flex-end;
+    width: 300px;
+}
+.container-topbar-account .col {
+    padding: 10px;
+}
+.container-topbar-account .col1 {    
+    display: flex;
+    align-items: center;
+    flex: 0 0 40px;
+}
+.container-topbar-account .col1 .material-icons {
+    font-size: 32px; // Tamanho padrão dos ícones
+}
+.container-topbar-account .col2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content; /* Limita a largura máxima ao maior conteúdo */
+    width: max-content; /* Ajusta a largura para o maior conteúdo */
+    justify-content: flex-end;
+}
+.rounded-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.rounded-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container-info-user {
+    background-color: $dark-color;
+    color: $white-text;
+    padding: 10px 0;
+}
+
+.container-info-user span:not([style*="display: block"]) {
+    display: block;
+}
+
+.card {
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    margin-bottom: 1.5rem;
+    background-color: $secondary-bg-color;
+}
+
+.card-header {
+    border-bottom: 1px solid $border-color;
+    background-color: $secondary-bg-color;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+}
+
+.card-footer {
+    border-top: 1px solid $border-color;
+}
+
+.card-drop {
+    color: #212529;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 7px 0;
+}
+
+.card-title-desc {
+    margin-bottom: 24px;
+}
+
+.topbar {
+    background-color: $secondary-bg-color;
+    justify-content: flex-end;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.top-row {
+    background-color: $dark-color;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.top-row ::deep a, .top-row ::deep .btn-link {
+    white-space: nowrap;
+    margin-left: 1.5rem;
+    text-decoration: none;
+}
+
+.top-row ::deep a:hover, .top-row ::deep .btn-link:hover {
+    text-decoration: none;
+    color: #6c5ce7;
+}
+
+.top-row ::deep a:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.navbar-brand {
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    color: $white-text;
+    font-size: 1.25rem;
+    text-decoration: none;
+    white-space: nowrap
+}
+
+.row-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: $white-text;
+    padding-left: 20px;
+    padding-right: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    align-items: center;
+    text-decoration: none;
+    background-color: $dark-color;
+}
+
+.row-flex-active {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: $accent-color;
+    padding-left: 20px;
+    padding-right: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    align-items: center;
+    text-decoration: none;
+    background-color: $dark-color;
+}
+
+
+/* Estilo para a primeira coluna com 90% de largura */
+.col-90 {
+    flex: 0 0 90%;
+    max-width: 90%;
+}
+
+/* Estilo para a segunda coluna com 10% de largura */
+.col-10 {
+    flex: 0 0 10%;
+    max-width: 10%;
+}
+
+/* Estilos do ícone oi-home e do ícone oi-chevron-bottom */
+.icon {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.icon-submenu {
+    margin-left: 25px;
+    margin-right: 5px;
+}
+
+
+/* Estilo para centralizar o texto verticalmente */
+.center-text {
+    text-decoration: none;
+}
+
+.center-text[role="link"] {
+    cursor: pointer; /* Muda o cursor para a mãozinha */
+}
+
+
+.material-icons-menu {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 14px; // Tamanho padrão dos ícones
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-flex; // Centralizar horizontalmente
+    align-items: center; // Centralizar verticalmente
+    justify-content: center; // Centralizar horizontalmente
+    height: 14px; // Defina a altura do ícone
+    width: 14px; // Defina a largura do ícone
+    background: none; // Remova o fundo
+    border: none; // Remova bordas
+    outline: none; // Remova contorno
+    cursor: pointer; // Cursor de ponteiro
+    user-select: none; // Impedir a seleção de texto
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+
+
+.material-icons-menu-submenu {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 8px; // Tamanho padrão dos ícones
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-flex; // Centralizar horizontalmente
+    align-items: center; // Centralizar verticalmente
+    justify-content: center; // Centralizar horizontalmente
+    height: 8px; // Defina a altura do ícone
+    width: 8px; // Defina a largura do ícone
+    background: none; // Remova o fundo
+    border: none; // Remova bordas
+    outline: none; // Remova contorno
+    cursor: pointer; // Cursor de ponteiro    
+    user-select: none; // Impedir a seleção de texto
+    margin-left: 25px;
+    margin-right: 5px;
+}
+
+
+.row-flex:hover,
+.row-flex:hover .icon
+.row-flex-active * {
+    color: $accent-color !important;
+}
+
+.row-flex-active:hover,
+.row-flex-active:hover .icon
+.row-flex-active * {
+    color: $accent-color !important;
+}
+
+
+.wenavbar-menu-item {
+    text-decoration: none;
+}
+
+.wenavbar-menu-item-active {
+    text-decoration: none;
+}
+
+.wenavbar-menu-item:hover *   
+.wenavbar-menu-item-active * {
+    color: $accent-color !important;
+}
+
+.table {
+    table-layout: fixed; /* Isso permite controlar a largura das colunas */
+    width: 100%; /* Largura total da tabela */
+}
+
+.table td {    
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adicione isso para lidar com conteúdo longo */
+    white-space: nowrap; /* Evita que o conteúdo quebre em várias linhas */
+    font-size: 12px;
+    padding: 0.2rem !important;
+}
+
+th {
+    font-size: 14px;
+    padding: 0 0.0rem 0.5rem 0.0rem !important; /* Aplica padding nos lados (0.5rem) e no bottom (0.2rem) */
+}
+
+td {
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adicione isso para lidar com conteúdo longo */
+    white-space: nowrap; /* Evita que o conteúdo quebre em várias linhas */
+    font-size: 12px;
+    padding: 0.2rem !important;
+}
+
+thead {
+    border-bottom: 1px solid $border-color;
+}
+
+.round-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    background-color: $button-default-color;
+    color: $accent-color; /* Cor do texto no botão */
+    border: none; /* Remove a borda padrão do botão */
+    cursor: pointer; /* Altera o cursor ao passar o mouse sobre o botão */
+}
+.button-icon {
+    color: $white-text;
+    transition: color 0.3s;
+}
+
+.round-button:hover .button-icon {
+    color: $accent-color;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 18px; // Tamanho padrão dos ícones
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-flex; // Centralizar horizontalmente
+    align-items: center; // Centralizar verticalmente
+    justify-content: center; // Centralizar horizontalmente
+    height: 24px; // Defina a altura do ícone
+    width: 24px; // Defina a largura do ícone
+    margin: 0; // Remova margens
+    padding: 0; // Remova preenchimento
+    background: none; // Remova o fundo
+    border: none; // Remova bordas
+    outline: none; // Remova contorno
+    cursor: pointer; // Cursor de ponteiro
+    color: #000; // Cor do ícone (substitua pela cor desejada)
+    user-select: none; // Impedir a seleção de texto
+}
+
+
+
+
+.navigator-container {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}
+
+
+.navigator-button {    
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    border: none; /* Remove a borda padrão do botão */
+    cursor: pointer; /* Altera o cursor ao passar o mouse sobre o botão */
+}
+
+.navigator-button:hover .material-icons {
+    background-color: $button-default-color;
+    color: $accent-color;
+    border-radius: 10%;
+}
+
+
+.navigator-text {
+    margin-left: 10px;
+    display: inline-flex; // Centralizar horizontalmente
+    align-items: center; // Centralizar verticalmente
+    font-size: 13px;
+    background-color: transparent;
+    border: none;
+}
+
+.badge {
+    line-height: 0.95;
+}
+
+.badge-bg-success {
+    background-color: $success-bg-color !important;
+}
+
+.badge-bg-warning {
+    background-color: $warning-bg-color !important;
+}
+
+.badge-bg-error {
+    background-color: $error-bg-color !important;
+}
+
+.badge-bg-information {
+    background-color: $information-bg-color !important;
+}
+
+.text-information {
+    opacity: 1;
+    color: $information-text-color !important;
+}
+
+.form {
+    background-color: $secondary-bg-color;
+}
+.form-content {
+    display: flex; /* Use flexbox para alinhar os filhos em linha */
+    align-items: center; /* Alinhe os filhos verticalmente no centro */
+    border-radius: 0.25rem;
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    //background-color: $secondary-bg-color;
+}

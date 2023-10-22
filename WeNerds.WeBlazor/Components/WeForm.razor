@@ -1,0 +1,10 @@
+﻿@inherits ComponentBase
+<div class="form">
+    @if (ShowTitle)
+    {
+        <WeCardHeader Title=@Title ShowNewButton=false />
+    }
+    <div class="form-content row">
+        @ChildContent        
+    </div>
+</div>

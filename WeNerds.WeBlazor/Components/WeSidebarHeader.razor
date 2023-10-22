@@ -1,0 +1,14 @@
+﻿<div class="top-row navbar">
+    <div class="container-sidebar-header">
+        @if(ShowLogo())
+        {
+            <a href="@Href">
+                <img src="logo.png" alt="Logo" style="max-width: 150px;" />
+            </a>
+        }
+        else
+        {
+            <a class="navbar-brand" href="@Href">@Title</a>
+        }
+    </div>
+</div>

@@ -1,0 +1,11 @@
+﻿@page "/edit-heroe"
+@inject NavigationManager _navigation;
+<div>
+    <WeForm Title="Heroes" ShowTitle=true >
+        <WeText TDataType=string Label="Código" Id="id" Columns="3" Disabled=true />
+        <WeText TDataType=string Label="Nome" Id="name"  Columns="9" />
+        <WeText TDataType=string Label="Descrição" Id="description" Columns="12" />
+        <WeText TDataType=string Label="SubDomínio" Id="subdomain" Columns="6" />
+        <WeText TDataType=string Label="Email" Id="email" Columns="6" />            
+    </WeForm>
+</div>

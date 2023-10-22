@@ -1,0 +1,7 @@
+﻿@typeparam TDataType
+<div class="@GetClassColumns()">
+    <div class="@GetClassMarginBottom()">
+        <label for="@GetId()" class="form-label">@GetLabel()</label>
+        <input type="@TypeField" class="@GetClass()" placeholder="@Placeholder" id="@GetId()" @bind:get="Value" @bind:set="SetValueAsync" disabled="@GetDisabledAttribute()" autocomplete="@GetAutoComplete()" />
+    </div>
+</div>

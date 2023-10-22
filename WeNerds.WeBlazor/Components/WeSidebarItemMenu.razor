@@ -1,0 +1,27 @@
+﻿@inject IWeStorage _weStorage
+@if (@GetClassVisible())
+{
+    <div class="@GetMenuItemClass()">
+        <a href="@Item.Href" class="@GetRowFlexClass()" onclick="@(() => Clicked())">            
+            <div class="col-90">
+                @if (string.IsNullOrEmpty(Item.ParentId))
+                {
+                        <span class="material-icons-menu">
+                            home
+                        </span>                    
+                }
+                else
+                {
+                        <span class="material-icons-menu-submenu">
+                        minimize
+                        </span>                    
+                }
+        
+                <span class="center-text">@Item.Description</span>
+            </div>
+            <div class="col-10">
+                <span class="@(GetClassRightIcon())"></span>
+            </div>
+        </a>
+    </div>
+}

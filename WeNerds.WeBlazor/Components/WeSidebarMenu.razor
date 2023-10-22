@@ -1,0 +1,32 @@
+﻿@using WeNerds.WeBlazor.Components;
+@using WeNerds.WeBlazor.Models;
+<div id="sidemenu" class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+    <nav id="flexcolumn" class="flex-column">
+
+        @foreach (var item in _menu.Items)
+        {
+            <WeSidebarItemMenu Item=item Menu=_menu OnClick="MenuItemClicked" />
+        }
+    </nav>
+</div>
+
+@code {
+    private bool 
+    
+    collapseNavMenu;
+    private Menu _menu { get; set; }
+    private NavItem _item { get; set; }
+
+    public void MenuItemClicked(string level)
+    {
+        LoadMenu(level);
+    }
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        //TODO por hora não vou tratar colapsed
+        //collapseNavMenu = !collapseNavMenu;
+    }
+}

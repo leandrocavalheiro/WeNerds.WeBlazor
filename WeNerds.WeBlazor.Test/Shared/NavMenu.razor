@@ -1,0 +1,34 @@
+﻿@using WeNerds.WeBlazor.Components;
+@using WeNerds.WeBlazor.Models;
+
+<WeSidebarHeader Logo="weLogo"/>
+<WeSidebarUserLogged UserLogged=_userLogged />
+<WeSidebarMenu />
+
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private UserLogged _userLogged { get; set; }
+    private NavItem _item { get; set; }
+    private NavItem _subItem1 { get; set; }
+    private NavItem _subItem2 { get; set; }
+
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    public NavMenu()
+    {
+        _userLogged = new UserLogged
+            {
+                Name = "Amanda Waller",
+                Role = "Director of A.R.G.U.S.",
+                Avatar = "avatar.jpg"
+            };
+    }
+}

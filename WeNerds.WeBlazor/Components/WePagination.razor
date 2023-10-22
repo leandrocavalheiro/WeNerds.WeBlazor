@@ -1,0 +1,26 @@
+﻿@using WeNerds.WeBlazor.Enumarators;
+<div class="navigator-container">
+    <button class="navigator-button" onclick="@(() => Clicked(SelectedPageEnum.First))">
+        <span class="material-icons">
+            first_page
+        </span>
+    </button>
+    <button class="navigator-button" onclick="@(() => Clicked(SelectedPageEnum.Previous))">
+        <span class="material-icons">
+            chevron_left
+        </span>
+    </button>
+    <div class="navigator-text">
+        <span>@GetPages()</span>
+    </div>
+    <button class="navigator-button" onclick="@(() => Clicked(SelectedPageEnum.Next))">
+        <span class="material-icons">
+            chevron_right
+        </span>
+    </button>
+    <button class="navigator-button" onclick="@(() => Clicked(SelectedPageEnum.Last))">
+        <span class="material-icons">
+            last_page
+        </span>
+    </button>
+</div>

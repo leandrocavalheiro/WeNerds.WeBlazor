@@ -1,0 +1,232 @@
+﻿@page "/counter"
+@using WeNerds.WeBlazor.Models;
+@using WeNerds.WeBlazor.Test.Models;
+@inject NavigationManager _navigation;
+
+
+<button class="round-button">
+    <i class="button-icon oi oi-plus" @onclick="() => Edit()">Editar teste</i>
+</button>
+
+<WeGrid Title="Heroes" TDataType=DataTest Headers=@Headers Items=Items/>
+
+
+@code {
+    private int currentCount = 0;
+    private ICollection<DataTest> Items { get; set; }
+    private ICollection<GridItem> Headers;
+    private int currentPage = 1;
+
+    public Counter()
+    {
+        Headers = new List<GridItem>();
+        Headers.Add(new GridItem("Id", "Código", 0, 5));
+        Headers.Add(new GridItem("Name", "Nome", 1,15));
+        Headers.Add(new GridItem("Description", "Descrição", 2, 45));
+        Headers.Add(new GridItem("Subdomain", "Subdomínio", 3, 10));
+        Headers.Add(new GridItem("Email", "Email", 4,20));
+
+
+        //AddBadgeInfo
+        var statusItem = new GridItem("Status", "Status", 5,5);
+        statusItem.AddBadgeInfo("true", "Ativa", Enumarators.BadgeStyleMenuEnum.Sucess);
+        statusItem.AddBadgeInfo("false", "Inativa", Enumarators.BadgeStyleMenuEnum.Information);
+        Headers.Add(statusItem);
+
+        Items = new List<DataTest>
+        {
+            new DataTest
+            {
+                Id = 1,
+                Name = "Superman",
+                Description = "O Último Filho de Krypton, com poderes sobre-humanos.",
+                Subdomain = "superman",
+                Email = "superman@gmail.com",
+                Status = true
+            },
+            new DataTest
+            {
+                Id = 2,
+                Name = "Batman",
+                Description = "O Cavaleiro das Trevas, um detetive e combatente do crime.",
+                Subdomain = "batman",
+                Email = "batman@gmail.com",
+                Status = true
+            },
+            new DataTest
+            {
+                Id = 3,
+                Name = "Wonder Woman",
+                Description = "A Princesa Amazona com força e habilidades divinas.",
+                Subdomain = "wonderwoman",
+                Email = "wonderwoman@gmail.com",
+                Status = true
+            },
+            new DataTest
+            {
+                Id = 4,
+                Name = "The Flash",
+                Description = "O Velocista Escarlate com supervelocidade.",
+                Subdomain = "theflash",
+                Email = "theflash@gmail.com",
+                Status = false
+            },
+            new DataTest
+            {
+                Id = 5,
+                Name = "Green Lantern",
+                Description = "Protetor do setor espacial com um anel de poder.",
+                Subdomain = "greenlantern",
+                Email = "greenlantern@gmail.com",
+                Status = true
+            },
+            new DataTest
+            {
+                Id = 6,
+                Name = "Aquaman",
+                Description = "Rei de Atlântida com poderes aquáticos e controle sobre os mares.",
+                Subdomain = "aquaman",
+                Email = "aquaman@gmail.com",
+                Status = false
+            },
+            new DataTest
+            {
+                Id = 7,
+                Name = "Cyborg",
+                Description = "Metahumano com partes cibernéticas avançadas.",
+                Subdomain = "cyborg",
+                Email = "cyborg@gmail.com",
+                Status = true
+            },
+            new DataTest
+            {
+                Id = 8,
+                Name = "Green Arrow",
+                Description = "Arqueiro habilidoso e defensor da justiça.",
+                Subdomain = "greenarrow",
+                Email = "greenarrow@gmail.com",
+                Status = true
+            },
+            new DataTest
+            {
+                Id = 9,
+                Name = "Martian Manhunter",
+                Description = "Último Marciano com habilidades telepáticas e metamorfas.",
+                Subdomain = "martianmanhunter",
+                Email = "martianmanhunter@gmail.com",
+                Status = true
+            },
+            new DataTest
+            {
+                Id = 10,
+                Name = "Supergirl",
+                Description = "Prima do Superman com poderes similares.",
+                Subdomain = "supergirl",
+                Email = "supergirl@gmail.com",
+                Status = true
+            },
+            new DataTest
+            {
+                Id = 11,
+                Name = "Black Canary",
+                Description = "Expert em artes marciais e possui um grito supersônico.",
+                Subdomain = "blackcanary",
+                Email = "blackcanary@gmail.com",
+                Status = true
+            },
+            new DataTest
+            {
+                Id = 12,
+                Name = "Hawkman",
+                Description = "Guerreiro alado com conexões a vidas passadas.",
+                Subdomain = "hawkman",
+                Email = "hawkman@gmail.com",
+                Status = true
+            },
+            new DataTest
+            {
+                Id = 13,
+                Name = "Zatanna",
+                Description = "Mágica e ilusionista poderosa.",
+                Subdomain = "zatanna",
+                Email = "zatanna@gmail.com",
+                Status = true
+            },
+            new DataTest
+            {
+                Id = 14,
+                Name = "Shazam",
+                Description = "Jovem herói com o poder de seis deuses mitológicos.",
+                Subdomain = "shazam",
+                Email = "shazam@gmail.com",
+                Status = true
+            },
+            new DataTest
+            {
+                Id = 15,
+                Name = "Nightwing",
+                Description = "Ex-parceiro do Batman e líder da equipe Jovens Titãs.",
+                Subdomain = "nightwing",
+                Email = "nightwing@gmail.com",
+                Status = true
+            },
+            new DataTest
+            {
+                Id = 16,
+                Name = "Raven",
+                Description = "Empata com poderes sombrios e misteriosos.",
+                Subdomain = "raven",
+                Email = "raven@gmail.com",
+                Status = true
+            },
+            new DataTest
+            {
+                Id = 17,
+                Name = "Red Tornado",
+                Description = "Android com controle sobre o vento e o clima.",
+                Subdomain = "redtornado",
+                Email = "redtornado@gmail.com",
+                Status = true
+            },
+            new DataTest
+            {
+                Id = 18,
+                Name = "Batgirl",
+                Description = "Habilidosa detetive e combatente do crime.",
+                Subdomain = "batgirl",
+                Email = "batgirl@gmail.com",
+                Status = true
+            },
+            new DataTest
+            {
+                Id = 19,
+                Name = "Beast Boy",
+                Description = "Metamorfo que pode se transformar em animais.",
+                Subdomain = "beastboy",
+                Email = "beastboy@gmail.com",
+                Status = true
+            },
+            new DataTest
+            {
+                Id = 20,
+                Name = "Static",
+                Description = "Jovem herói com controle sobre eletricidade.",
+                Subdomain = "static",
+                Email = "static@gmail.com",
+                Status = true
+            }
+        };
+
+    }
+
+    private void IncrementCount()
+    {
+        currentCount++;
+
+    }
+    private void Edit()
+    {
+        _navigation.NavigateTo("/edit-heroe");
+    }
+}
+

@@ -1,56 +1,54 @@
 ﻿@typeparam TDataType
-<div class="card">
+<div class="we-grid">
     @if (ShowTitle)
     {
-        <WeCardHeader Title=@Title ShowNewButton=EnableAdd/>
+        <WeGridTitle Title=@Title Subtitle=@Subtitle ShowNewButton=EnableAdd />        
     }
-    <div class="card-body">
-        <table class="table table-hover table-borderless table-centered align-middle table-nowrap mb-0">
-            @if (ShowHeaders)
-            {
-                <thead class="bg-light-subtle">
-                    <tr>
-                        @foreach (var item in Headers.OrderBy(p => p.Order))
-                        {
-                            <th style="width:@item.Width%">@item.Description</th>
-                        }
-                    </tr>
-                </thead>
-            }    
-            <tbody>
+
+    @if (ShowHeaders)
+    {
+        <WeGridHeader Headers="Headers" />
+    }
+
+    <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+        <tbody class="we-grid-body">
             @if (_showItems != null && _showItems.Count > 0)
             {
-                    @foreach (var item in _showItems)
-                    {
-                        <tr>
-                            @foreach (var field in Headers.OrderBy(p => p.Order))
-                            {
-                                var value = GetFieldValue(field.Name, item);
+                _rowId = 0;
 
-                                if (field.BadgesInfo?.Count > 0)
-                                {
-                                    <td style="width:@field.Width%"><span class="@GetClassField(field, value)">@GetValueBadge(field, @value)</span></td>
-                                }
-                                else
-                                {
-                                    <td style="width:@field.Width%"><span class="@GetClassField(field, value)">@value</span></td>
-                                }
-                            }
-                        </tr>
-                    }
+                @foreach (var item in _showItems)
+                {
+                    var currentId = _rowId;
+                    <tr class="@GetClassRow(_rowId)" id="@_rowId" @onclick="() => RowClick(currentId)">
+                                    @foreach (var field in Headers.OrderBy(p => p.Order))
+                                    {
+                                        var value = GetFieldValue(field.Name, item);
+
+                                        if (field.BadgesInfo?.Count > 0)
+                                        {
+                                            <td style="width:@field.Width%"><span class="@GetClassField(field, value)">@GetValueBadge(field, @value)</span></td>
+                                        }
+                                        else
+                                        {
+                                            <td style="width:@field.Width%"><span class="@GetClassField(field, value)">@value</span></td>
+                                        }
+                                    }
+                    </tr>
+                    _rowId++;
+                }
             }
 
 
             @for (int i = 1; i <= _moreRows; i++)
             {
-                <tr/>                
+                <tr id="@_rowId" />
+                _rowId++;
             }
-                
-
-            </tbody>
-        </table>
-        <div class="d-flex justify-content-end mt-3">
-            <WePagination CurrentPage=_currentPage TotalPages=_totalPages OnClick="GetPage" />
-        </div>
+            
+        </tbody>
+    </table>
+    
+    <div class="d-flex justify-content-end mt-3">
+        <WePagination CurrentPage=_currentPage TotalPages=_totalPages OnClick="GetPage" />
     </div>
 </div>

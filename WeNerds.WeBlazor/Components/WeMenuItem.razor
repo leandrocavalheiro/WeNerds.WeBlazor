@@ -1,0 +1,12 @@
+﻿@if (GetClassVisible())
+{
+    <div class="@GetWeMenuItemClass()" style="@GetWeMenuItemStyle()" onclick="@(() => ClickedAsync())">
+        <div class="we-menu-item-column-left">
+            <span class="@GetClassIcon()">@GetIcon()</span>
+            <span class="@GetClassMenuDescription()">@Item.Description</span>
+        </div>
+        <div class="we-menu-item-column-right @GetClassIcon()">
+            <div>@GetRightIcon()</div>
+        </div>    
+    </div>
+}

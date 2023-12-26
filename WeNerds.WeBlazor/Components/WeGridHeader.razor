@@ -1,0 +1,12 @@
+﻿<div class="we-grid-header">    
+    <table class="we-grid-table">
+        <thead>
+            <tr class="we-grid-row-header">
+                @foreach (var item in Headers.OrderBy(p => p.Order))
+                {
+                    <th style="width:@item.Width%">@item.Description</th>
+                }
+            </tr>
+        </thead> 
+    </table>    
+</div>

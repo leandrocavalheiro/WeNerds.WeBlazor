@@ -1,0 +1,23 @@
+﻿@inject IWeToastService _weToastService
+@implements IDisposable
+
+<div class="we-toast-container">
+    <div class="@GetClass()">
+        <div class="we-toast-col-1">
+            <span class="we-icon">
+                @GetIcon()
+            </span>
+        </div>
+        <div class="we-toast-col-2">
+            <div class="we-toast-title">
+                <p>@Title</p>
+                <span class="we-icon">
+                    close
+                </span>
+            </div>
+            <div class="we-toast-text">
+                <p>@Text</p>
+            </div>
+        </div>
+    </div>
+</div>

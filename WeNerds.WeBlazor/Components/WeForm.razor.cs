@@ -7,6 +7,8 @@ public partial class WeForm : ComponentBase
     [Parameter]
     public string Title { get; set; }
     [Parameter]
+    public string Subtitle { get; set; }
+    [Parameter]
     public bool ShowTitle { get; set; } = true;
     [Parameter]
     public RenderFragment ChildContent { get; set; }

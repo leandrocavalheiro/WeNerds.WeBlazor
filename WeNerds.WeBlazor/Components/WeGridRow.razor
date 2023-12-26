@@ -1,0 +1,31 @@
+﻿@typeparam TDataType;
+<div class="we-grid-row">
+    <div class="we-grid-column-accent">
+        <tr class="@GetClassColumnAccent()" onclick="@RowClickedAsync()">
+            <td class="tr-selector-indicator">
+                <span>
+                </span>
+            </td>
+        </tr>
+    </div>
+    <div class="we-grid-column">
+        @if (Item != null && Headers != null)
+        {
+            <tr onclick="@RowClickedAsync()">
+                @foreach (var field in Headers.OrderBy(p => p.Order))
+                {
+                    var value = GetFieldValue(field.Name, Item);
+
+                    if (field.BadgesInfo?.Count > 0)
+                    {
+                        <td style="width:@field.Width%"><span class="@GetClassField(field, value)">@GetValueBadge(field, @value)</span></td>
+                    }
+                    else
+                    {
+                        <td style="width:@field.Width%"><span class="@GetClassField(field, value)">@value</span></td>
+                    }
+                }
+            </tr>                     
+        }
+    </div>
+</div>

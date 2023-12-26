@@ -1,9 +1,9 @@
-﻿@inherits LayoutComponentBase
+﻿@using WeNerds.WeBlazor.Models
+@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<WeToast />
+<div class="page">    
+    <WeSidebar Menu="_menu" Logo="WeLogo" UserLogged="_userLogged"></WeSidebar>
 
     <main>
         <WeTopbar />
@@ -13,3 +13,34 @@
         </article>
     </main>
 </div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private UserLogged _userLogged { get; set; }
+    private Menu _menu { get; set; }
+    private NavItem _item { get; set; }
+
+    public MainLayout()
+    {
+        _userLogged = new UserLogged
+            {
+                Name = "Amanda Waller",
+                Role = "Diretora da A.R.G.U.S.",
+                Avatar = "avatar.jpg"
+            };
+
+        _menu = new Menu();
+        _item = _menu.AddMenuItem("Cadastros", "home", "");
+        _menu.AddChildrenItem(_item, "Heróis", "", "counter");
+        _menu.AddChildrenItem(_item, "Vilões", "", "login");
+        var teste = _menu.AddChildrenItem(_item, "Quadrinhos", "", "");
+        _menu.AddChildrenItem(teste, "Terceiro nível", "", "counter");
+
+
+        _item = _menu.AddMenuItem("Relatórios", "", "");
+        _menu.AddChildrenItem(_item, "Teste", "", "fetchdata");
+        _menu.Items = _menu.Items.OrderBy(p => p.Level).ToList();
+
+    }
+}

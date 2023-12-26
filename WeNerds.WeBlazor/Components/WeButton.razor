@@ -1,0 +1,13 @@
+﻿<div>    
+    <button id="@Id" @onclick="ButtonClickedAsync" class="@GetClassButton()">
+        @if (!string.IsNullOrEmpty(Icon))
+        {
+            <i class="we-icon">@Icon</i>
+        }
+
+        @if (string.IsNullOrWhiteSpace(@Title) == false)
+        {
+            <span class="we-text">@Title</span>        
+        }
+    </button>    
+</div>

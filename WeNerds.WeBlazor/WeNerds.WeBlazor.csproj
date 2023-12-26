@@ -3,7 +3,20 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>    
     <ImplicitUsings>enable</ImplicitUsings>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
+  <PropertyGroup>
+	<VersionSuffix>0.1.01</VersionSuffix>
+	<AssemblyVersion Condition=" '$(VersionSuffix)' == '' ">0.0.1</AssemblyVersion>
+	<AssemblyVersion Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</AssemblyVersion>
+	<Version Condition=" '$(VersionSuffix)' == '' ">0.0.1</Version>
+	<Version Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</Version>
+	<Company>Unwired</Company>
+	<Authors>Leandro Luiz G. Cavalheiro</Authors>
+	<Copyright>Copyright ©WeNerds</Copyright>
+	<Product>WeBlazor</Product>	
+	<Description>Components for Blazor Applications</Description>
+  </PropertyGroup>	
 
   <ItemGroup>
     <Content Remove="compilerconfig.json" />
@@ -23,11 +36,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="BuildWebCompiler2022" Version="1.14.10" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.7" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Update="wwwroot\css\WeStyle.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\WeStyle.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\login_default.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

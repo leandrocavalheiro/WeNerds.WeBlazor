@@ -14,9 +14,7 @@ public partial class WeSidebarItemMenu : ComponentBase
     public EventCallback<string> OnClick { get; set; }
     
     protected override void OnInitialized()
-    {
-        Console.WriteLine($"Item.Description: {Item.Description}");
-
+    {        
         ShowItemMenu();
         GetClassMainDiv();
         GetClassRightIcon();
@@ -28,7 +26,7 @@ public partial class WeSidebarItemMenu : ComponentBase
     }
 
 
-    private async Task Clicked()
+    private async Task ClickedAsync()
     {              
         await OnClick.InvokeAsync(Item.Level);        
     }
@@ -84,4 +82,37 @@ public partial class WeSidebarItemMenu : ComponentBase
 
     }
 
+    private string  GetIcon()
+    {
+        var icon = string.IsNullOrWhiteSpace(Item.ParentId) ? "label" : "minimize";
+        if (string.IsNullOrWhiteSpace(Item.Icon) == false)
+            icon = Item.Icon;
+
+        Console.WriteLine(icon);
+
+        return icon;
+    }
+
+    private string GetRightIcon()
+    {
+        if (!string.IsNullOrEmpty(Item.Href))
+            return "";
+
+        if (!Item.Selected)            
+            return "chevron_right";
+
+        return "expand_more";
+    }
+
+    private string GetClassIcon()
+    {
+        var currentClass = "we-icon-menu-child";        
+        if (string.IsNullOrEmpty(Item.ParentId))
+            currentClass = "we-icon-menu";
+
+        if (Item.Active || Item.Selected)
+            currentClass += "-active";
+
+        return currentClass;
+    }
 }

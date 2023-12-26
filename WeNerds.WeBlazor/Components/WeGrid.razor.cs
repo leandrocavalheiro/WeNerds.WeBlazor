@@ -9,6 +9,8 @@ public partial class WeGrid<TDataType> : ComponentBase
     [Parameter]
     public string Title { get; set; }
     [Parameter]
+    public string Subtitle { get; set; }
+    [Parameter]
     public bool ShowTitle { get; set; } = true;
     [Parameter]
     public bool ShowHeaders { get; set; } = true;
@@ -29,6 +31,10 @@ public partial class WeGrid<TDataType> : ComponentBase
     private int _moreRows;
     private int _currentPage = 1;
     private int _totalPages = 4;
+
+    private int _rowId = 0;
+    private int _activeRow = 0;
+
     private ICollection<TDataType> _showItems = new List<TDataType>();
 
     public WeGrid()
@@ -156,6 +162,38 @@ public partial class WeGrid<TDataType> : ComponentBase
 
         StateHasChanged();
     }
+
+    private void RowClick(int rowId)
+    {
+        SetActive(rowId);
+        StateHasChanged();
+    }
+    private void SetActive(int rowId)
+    {
+        _activeRow = rowId;        
+    }
+    private string GetClassRow(int rowId)
+    {
+        var result = "we-grid-row";
+        if (rowId == _activeRow)
+            result += "-active";
+
+        return result;
+    }
+    private string GetClassColumnAccent(int rowId)
+    {
+        var result = "we-grid-column-accent";
+        if (rowId == _activeRow)
+            result += "-active";
+
+        return result;
+    }
+
+    private bool IsRowSelected(int rowId)
+        => _activeRow == rowId;
+
+    
+
 
 
 }

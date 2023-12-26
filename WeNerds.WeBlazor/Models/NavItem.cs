@@ -37,6 +37,20 @@ public class NavItem
 
         return level.IndexOf('.', 0) == 0;
     }
+    public bool IsRootLevel()
+        => string.IsNullOrWhiteSpace(ParentId);
+    public bool IsSubLevel()
+        => string.IsNullOrWhiteSpace(ParentId) == false;
+    public bool HasIcon()
+        => string.IsNullOrWhiteSpace(Icon) == false;
+    public bool HasHRef()
+        => string.IsNullOrWhiteSpace(Href) == false;
+
+    public int GetLevel()
+        => Level.Count(p => p == '.');
+
+    
+
     private static ICollection<string> GetHierarchyLevels(string targetLevel)
     {
         ICollection<string> hierarchyLevels = new List<string>();

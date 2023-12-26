@@ -1,14 +1,40 @@
 ﻿@page "/counter"
+@using WeNerds.WeBlazor.Enumarators
 @using WeNerds.WeBlazor.Models;
 @using WeNerds.WeBlazor.Test.Models;
-@inject NavigationManager _navigation;
+@inject NavigationManager _navigation
+@inject IWeToastService _weToastService
 
 
-<button class="round-button">
-    <i class="button-icon oi oi-plus" @onclick="() => Edit()">Editar teste</i>
+
+
+<WeGrid Title="Heroes" Subtitle="List of DC Super Heroes" TDataType=DataTest Headers=@Headers Items=Items/>
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+<WeButton Icon="Add" />
+<WeButton Icon="oi oi-plus" Title="TEsteeeeee" />
+<WeButton Icon="Add" />
+
+
+<button class="btn btn-info" @onclick="() => Teste()">Ihuuul</button>
+
+<button class="we-button-icon">
+    <i class="oi oi-plus" @onclick="() => Edit()">t</i>
 </button>
-
-<WeGrid Title="Heroes" TDataType=DataTest Headers=@Headers Items=Items/>
 
 
 @code {
@@ -22,13 +48,13 @@
         Headers = new List<GridItem>();
         Headers.Add(new GridItem("Id", "Código", 0, 5));
         Headers.Add(new GridItem("Name", "Nome", 1,15));
-        Headers.Add(new GridItem("Description", "Descrição", 2, 45));
+        Headers.Add(new GridItem("Description", "Descrição", 2, 43));
         Headers.Add(new GridItem("Subdomain", "Subdomínio", 3, 10));
-        Headers.Add(new GridItem("Email", "Email", 4,20));
+        Headers.Add(new GridItem("Email", "Email", 4, 20));
 
 
         //AddBadgeInfo
-        var statusItem = new GridItem("Status", "Status", 5,5);
+        var statusItem = new GridItem("Status", "Status", 5,7);
         statusItem.AddBadgeInfo("true", "Ativa", Enumarators.BadgeStyleMenuEnum.Sucess);
         statusItem.AddBadgeInfo("false", "Inativa", Enumarators.BadgeStyleMenuEnum.Information);
         Headers.Add(statusItem);
@@ -218,7 +244,10 @@
         };
 
     }
-
+    private void Teste()
+    {        
+        _weToastService.ShowToast("Ihuuul", "Error", ToastTypeEnum.Error);
+    }
     private void IncrementCount()
     {
         currentCount++;

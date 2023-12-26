@@ -1,28 +1,23 @@
 ﻿@using WeNerds.WeBlazor.Components;
 @using WeNerds.WeBlazor.Models;
-<div id="sidemenu" class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+<div id="sidemenu" class="nav-scrollable" @onclick="ToggleNavMenu">
     <nav id="flexcolumn" class="flex-column">
 
-        @foreach (var item in _menu.Items)
+        @foreach (var item in Menu.Items)
         {
-            <WeSidebarItemMenu Item=item Menu=_menu OnClick="MenuItemClicked" />
+            <WeSidebarItemMenu Item=item Menu=Menu OnClick="MenuItemClicked" />
         }
     </nav>
 </div>
 
 @code {
-    private bool 
-    
-    collapseNavMenu;
-    private Menu _menu { get; set; }
-    private NavItem _item { get; set; }
 
+        
     public void MenuItemClicked(string level)
     {
         LoadMenu(level);
     }
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
     private void ToggleNavMenu()
     {

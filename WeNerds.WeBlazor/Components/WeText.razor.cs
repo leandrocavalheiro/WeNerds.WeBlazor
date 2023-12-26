@@ -36,13 +36,21 @@ public partial class WeText<TDataType> : ComponentBase
 
     private string GetClassColumns()
     {
-        if (Columns <= 0)
-            return "col-3";
+        var result = "we-input ";
+        switch (Columns)
+        {
+            case <= 0:
+                result += "col-3";
+                break;
+            case >= 12:
+                result += "col-12";
+                break;
+            default:
+                result += $"col-{Columns}";
+                break;
+        }
 
-        if (Columns >= 12)
-            return "col-12";
-
-        return $"col-{Columns}";
+        return $"{result} {GetClassMarginBottom()}";
     }
 
     private string GetClassMarginBottom()
@@ -73,7 +81,7 @@ public partial class WeText<TDataType> : ComponentBase
     private string GetAutoComplete()
         => AutoComplete ? "on" : "new-password";
     private string GetClass()
-        => string.IsNullOrEmpty(CustomClass) ? "form-control" : CustomClass;
+        => string.IsNullOrEmpty(CustomClass) ? "we-input-text" : CustomClass;
     public WeText()
     {
         TypeField = "text";

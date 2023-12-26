@@ -1,0 +1,22 @@
+﻿<div class="we-login">
+    <div class="we-login-column-text">
+        @if (HasLogo())
+        {
+            <div class="logo">
+                <img src="@GetLogo()"/>
+            </div>
+        }
+        <div class="form-login">
+            <WeForm ShowTitle=true Title="@Title" Subtitle="@Subtitle">
+                <div class="we-login-detail">
+                    <WeText TDataType="string" Columns="12" Label="@LabelUser" @bind-Value="@User"></WeText>
+                    <WeText TDataType="string" Columns="12" Label="@LabePassword" @bind-Value="@Password"></WeText>
+                    <WeButton Title="Logar" CssClass="we-button col-12" OnClicked="LoginClickedAsync"></WeButton>
+                </div>
+            </WeForm>
+        </div>
+    </div>
+    <div class="we-login-column-image">
+        <img src="@GetImage()" />
+    </div>
+</div>

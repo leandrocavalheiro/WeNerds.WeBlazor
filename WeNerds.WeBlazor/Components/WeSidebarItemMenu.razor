@@ -2,25 +2,22 @@
 @if (@GetClassVisible())
 {
     <div class="@GetMenuItemClass()">
-        <a href="@Item.Href" class="@GetRowFlexClass()" onclick="@(() => Clicked())">            
+        <a href="@Item.Href" class="@GetRowFlexClass()" onclick="@(() => ClickedAsync())">
             <div class="col-90">
-                @if (string.IsNullOrEmpty(Item.ParentId))
-                {
-                        <span class="material-icons-menu">
-                            home
-                        </span>                    
-                }
-                else
-                {
-                        <span class="material-icons-menu-submenu">
-                        minimize
-                        </span>                    
-                }
-        
-                <span class="center-text">@Item.Description</span>
+                <div class="full-height">
+                    <span class="@GetClassIcon()">
+                        @GetIcon()
+                    </span>
+
+                    <span class="center-text">@Item.Description</span>
+                </div>
             </div>
             <div class="col-10">
-                <span class="@(GetClassRightIcon())"></span>
+                <div class="full-height">
+                    <span class="@GetClassIcon()">
+                        @GetRightIcon()
+                    </span>
+                </div>
             </div>
         </a>
     </div>

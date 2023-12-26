@@ -15,7 +15,15 @@
     <ProjectReference Include="..\WeNerds.WeBlazor\WeNerds.WeBlazor.csproj" />
   </ItemGroup>
     <ItemGroup>
-	    <Content Include="..\WeNerds.WeBlazor\wwwroot\css\WeStyle.css" />
+	    <Content Include="..\WeNerds.WeBlazor\wwwroot\css\WeStyle.css">
+	      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	    </Content>
+	    <Content Include="..\WeNerds.WeBlazor\wwwroot\css\WeStyle.min.css" Link="WeStyle.min.css" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Update="wwwroot\logo.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

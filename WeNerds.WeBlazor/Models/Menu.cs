@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace WeNerds.WeBlazor.Models;
 
@@ -13,12 +12,14 @@ public class Menu
         Items.Add(rootMenu);
         return rootMenu;
     }
-    public void AddChildrenItem(NavItem parent, string description, string icon, string href, bool disabled = false, bool selected = false, string id = null)
+    public NavItem AddChildrenItem(NavItem parent, string description, string icon, string href, bool disabled = false, bool selected = false, string id = null)
     {
         if (Items == null || Items.Count == 0)
-            return;
-        
-        Items.Add(new NavItem(description, GetNextLevelParent(parent.Level), icon, href, parent.Id, disabled, selected, id));
+            return null;
+
+        var newItem = new NavItem(description, GetNextLevelParent(parent.Level), icon, href, parent.Id, disabled, selected, id);
+        Items.Add(newItem);
+        return newItem;
     }
 
     private string GetNextLevelRoot()
